@@ -1,0 +1,37 @@
+<h1>Requirement-form</h1>
+
+<!-- debud: {{fg.value | json}} -->
+
+<div class="w-75">
+  <form [formGroup]="fg">
+
+    <div class="m-3">
+      <label class="form-label" for="title">Title</label>
+      <input type="text" class="form-control" id="title" formControlName="title" />
+    </div>
+    <!-- {{ fg.controls.title.errors | json }} -->
+    <!-- <div class="text-danger" *ngIf="fg.controls.title.errors && fg.controls.title.touched"> -->
+    <div class="text-danger" *ngIf="title.errors && title.touched">
+      <!-- ต้องมีข้อมูล และ ถูกแตะ ด้วย -->
+      Title is required
+    </div>
+
+    <div class="m-3">
+      <label class="form-label" for="contactMobileNo">Contact Mobile No</label>
+      <input type="text" class="form-control" id="contactMobileNo" formControlName="contactMobileNo" />
+    </div>
+    <!-- Requrieed validate -->
+    <div class="text-danger" *ngIf="contactMobileNo.hasError('required') && contactMobileNo.touched">
+      Mobile is required
+    </div>
+    <!-- thMobile validate -->
+    <!-- {{ contactMobileNo.errors | json }} -->
+    <div class="text-danger" *ngIf="contactMobileNo.hasError('thMobile') && contactMobileNo.touched">
+      Mobile No. is invalid
+    </div>
+
+    <button type="submit" class="btn btn-primary ms-3" (click)="onSubmit()" [disabled]="!fg.valid">Submit</button>
+    <button class="btn btn-secondary ms-2" (click)="onBack()" type="button">Cancel</button>
+
+  </form>
+</div>

@@ -1,0 +1,20 @@
+<h1>Requirement-view</h1>
+
+<div class="w-75">
+  <div class="card">
+
+    <div class="m-3">
+      <label class="form-label" for="title">Title : </label>
+      <span class="ms-2 h6 text-danger"> {{ fg.value.title }} </span>
+    </div>
+
+    <div class="m-3">
+      <label class="form-label" for="contactMobileNo">Contact Mobile No : </label>
+      <span class="ms-2 h6 text-danger"> {{ fg.value.contactMobileNo }} </span>
+    </div>
+
+  </div>
+
+  <button class="btn btn-secondary ms-2 mt-4" (click)="onBack()" type="button">Cancel</button>
+</div>
+
